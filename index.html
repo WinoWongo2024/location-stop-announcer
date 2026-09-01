@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Location Stop Announcer 🚌</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🚌 Stop Announcer</h1>
+      <p class="subtitle">Location-based bus-style announcements</p>
+    </header>
+
+    <section class="board-section">
+      <div class="board" id="board">
+        <div class="board-header">NEXT STOP</div>
+        <div class="board-main" id="next-stop-name">Waiting for location…</div>
+        <div class="board-sub" id="next-stop-dist">—</div>
+        <div class="board-footer" id="status">Enable location to start</div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="start-btn" class="btn primary">Start Tracking</button>
+      <button id="announce-btn" class="btn" disabled>Test Announcement</button>
+      <label class="toggle">
+        <input type="checkbox" id="voice-toggle" checked />
+        Voice On
+      </label>
+    </section>
+
+    <section class="map-section">
+      <div id="map"></div>
+    </section>
+
+    <section class="stops-list-section">
+      <h2>Route Stops</h2>
+      <ul id="stops-list"></ul>
+    </section>
+
+    <footer>
+      <p>Open source • Edit <code>stops.js</code> to customise the route</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="stops.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
