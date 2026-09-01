@@ -2,8 +2,11 @@
 
 A fun web app that uses your device's GPS location to detect when you're near predefined "stops", shows them on a digital departure-style board, and makes voice announcements — just like riding a bus!
 
+**Current default route:** Leeds → Harewood → Harrogate  
+(Lots of stops in Leeds, many between via Harewood, and a good number in Harrogate, with county-style announcements for West Yorkshire / North Yorkshire.)
+
 Perfect for:
-- Virtual bus rides / sightseeing routes
+- Virtual bus rides / sightseeing routes (inspired by the real 36 bus)
 - Accessibility demos
 - Learning geolocation + Web Speech API
 - Custom walking tours or campus routes
@@ -12,7 +15,7 @@ Perfect for:
 
 - 📍 Real-time geolocation tracking (browser GPS)
 - 🖼️ Digital "board" showing current / next stop (yellow-on-black classic style)
-- 🔊 Voice announcements using the Web Speech API ("Next stop: ...")
+- 🔊 Voice announcements using the Web Speech API
 - 🗺️ Simple map view of your position and stops (Leaflet + OpenStreetMap)
 - ⚡ Configurable proximity threshold (default 50 meters)
 - 📝 Easy to edit the list of stops in `stops.js`
@@ -38,16 +41,7 @@ Or just open `index.html` locally in a modern browser.
 
 ## Customising the stops
 
-Edit `stops.js`:
-
-```js
-const STOPS = [
-  { id: 1, name: "Central Station", lat: 51.5308, lng: -0.1238, announcement: "Next stop: Central Station" },
-  { id: 2, name: "City Park", lat: 51.5350, lng: -0.1300, announcement: "Approaching City Park. Alight here for the gardens." },
-  // add more...
-];
-```
-
+Edit `stops.js` — it already contains a full Leeds–Harewood–Harrogate set.  
 You can also change the detection radius in `app.js` (`PROXIMITY_METERS`).
 
 ## Running locally
