@@ -60,9 +60,9 @@ function updateBoard(nextStop, dist) {
   if (dist !== null) {
     distEl.textContent = dist < 1000 ? `${Math.round(dist)} m away` : `${(dist / 1000).toFixed(1)} km away`;
   } else {
-    distEl.textContent = "—";
+    distEl.textContent = "\u2014";
   }
-  statusEl.textContent = "Tracking active • GPS live";
+  statusEl.textContent = "Tracking active \u2022 GPS live";
 }
 
 function renderStopsList(userLat, userLng) {
@@ -85,7 +85,7 @@ function renderStopsList(userLat, userLng) {
 
     li.innerHTML = `
       <span>${stop.name}</span>
-      <span class="dist">${dist !== null ? (dist < 1000 ? Math.round(dist) + " m" : (dist / 1000).toFixed(1) + " km") : "—"}</span>
+      <span class="dist">${dist !== null ? (dist < 1000 ? Math.round(dist) + " m" : (dist / 1000).toFixed(1) + " km") : "\u2014"}</span>
     `;
     list.appendChild(li);
   });
@@ -116,7 +116,8 @@ function checkStops(lat, lng) {
 }
 
 function initMap() {
-  map = L.map("map").setView([51.52, -0.125], 14);
+  // Centre on the Leeds–Harewood–Harrogate corridor
+  map = L.map("map").setView([53.90, -1.52], 11);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap"
   }).addTo(map);
@@ -155,7 +156,7 @@ function onPosition(pos) {
   checkStops(latitude, longitude);
 
   document.getElementById("status").textContent =
-    `Tracking active • ±${Math.round(accuracy)} m`;
+    `Tracking active \u2022 \u00b1${Math.round(accuracy)} m`;
 }
 
 function onError(err) {
@@ -172,7 +173,7 @@ function startTracking() {
   }
   if (watchId !== null) return; // already running
 
-  document.getElementById("start-btn").textContent = "Tracking…";
+  document.getElementById("start-btn").textContent = "Tracking\u2026";
   document.getElementById("start-btn").disabled = true;
   document.getElementById("announce-btn").disabled = false;
 
